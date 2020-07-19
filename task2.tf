@@ -27,12 +27,12 @@ resource "aws_s3_bucket" "mybucket" {
  bucket = "mybucket"
  acl = "public-read"
  tags = {
-  Name = "myownbucket1"
+  Name = "mytask2bucket"
  }
 }
 resource "aws_s3_bucket_object" "mybucobj13" {
  bucket = aws_s3_bucket.mybuckt.bucket
- key = "images.png"
+ key = "images (5).jpg"
 }
 locals {
  s3_origin_id = "aws_s3_bucket.mybuckt.bucket"
@@ -69,7 +69,7 @@ resource "aws_security_group" "my_security" {
   cidr_blocks = ["0.0.0.0/0"]
  }
  tags = {
-  Name = "myownsecurity"
+  Name = "mytask2security"
  }
 }
 resource "aws_efs_flie_system" "myefs01" {
@@ -92,7 +92,7 @@ resource "aws_instance" "mywebserver" {
  vpc_security_group_ids = [aws_security_group.my_security.id]
  subnet_id = "${aws_subnet.subnet01.id}" 
  tags = {
-  Name = "mywebserver-os"
+  Name = "mytask2OS"
  }
 } 
 resource "null_resource" "nullreso1" {
