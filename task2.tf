@@ -31,12 +31,12 @@ resource "aws_s3_bucket" "mybucket" {
  }
 }
 resource "aws_s3_bucket_object" "mybucobj13" {
- bucket = aws_s3_bucket.mybuckt.bucket
+ bucket = aws_s3_bucket.mybucket.bucket
  key = "images (5).jpg"
 }
 locals {
- s3_origin_id = "aws_s3_bucket.mybuckt.bucket"
- depends_on = [aws_s3_bucket.mybuckt]
+ s3_origin_id = "aws_s3_bucket.mybucket.bucket"
+ depends_on = [aws_s3_bucket.mybucket]
 }
 resource "aws_security_group" "my_security" {
  name = "myownsecurity"
@@ -112,7 +112,7 @@ provisioner "remote-exec" {
   "sudo mount -t efs ${aws_efs_file_system.myefs01.id}:/ /var/www/html",
   "sudo echo '${aws_efs_file_system.myefs01.id}:/ /var/www/html efs defaults,_netdev 0 0' >> /etc/fstab",
   "sudo rm -rf /var/www/html/*",
-  "sudo git clone "
+  "sudo git clone https://github.com/yachna15-nankani/mytask02.git /var/www/html"
  ]
 }
 resource "aws_cloudfront_origin_access_identity" "myidentity" {
