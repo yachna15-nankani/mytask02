@@ -76,7 +76,7 @@ resource "aws_efs_flie_system" "myefs01" {
  creation_token = "myefs01"
  performance_mode = "generalPurpose"
  tags = {
-  Name = "efs-yachna"
+  Name = "mytask2efs"
  }
 }
 resource "aws_efs_mount_target" "myefs01-mount" {
